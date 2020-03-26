@@ -22,20 +22,12 @@ print ("Original Calfile Downloaded")
 
 # while loop to multiply existing calfile with the multipliers
 c = 0
-hyst = calfile ['filters'] [1] ['samples'] [c]    
-j = 0
-for cell in hyst:
-    multiplier = mult [j] + ((1 - mult [j])*level [c])
-    calfile ['filters'] [1] ['samples'] [c] [j] = cell * multiplier
-    j += 1
-# double conductances at the first frame
-
-zero = calfile ['filters'] [1] ['samples'] [c]
+zero = calfile ['filters'] [1] ['samples'] [0]
 #print (hyst)
 mod = [None] * len (zero)
 j = 0
 for cell in zero:
-    mod [j] = 70
+    mod [j] = 80
     j += 1
 calfile ['filters'] [1] ['samples'] [c] = mod
 
